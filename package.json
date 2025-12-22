@@ -68,7 +68,7 @@
   "dependencies": {
     "@unblockneteasemusic/server": "^0.28.0",
     "axios": "^1.13.2",
-    "compression": "^1.7.4"
+    "compression": "^1.7.4",
     "crypto-js": "^4.2.0",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
