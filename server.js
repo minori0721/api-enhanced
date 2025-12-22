@@ -4,6 +4,7 @@ const path = require('path')
 const express = require('express')
 const request = require('./util/request')
 const packageJSON = require('./package.json')
+const compression = require('compression')
 const exec = require('child_process').exec
 const cache = require('./util/apicache').middleware
 const { cookieToJson } = require('./util/index')
@@ -135,6 +136,7 @@ async function checkVersion() {
  */
 async function consturctServer(moduleDefs) {
   const app = express()
+  app.use(compression())
   const { CORS_ALLOW_ORIGIN } = process.env
   app.set('trust proxy', true)
 
