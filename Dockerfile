@@ -13,13 +13,11 @@ COPY --chown=node:node . ./
 # 🟢 修改开始 (Modified)
 # =======================
 
-# 1. 安装 compression 压缩包
-RUN yarn add compression --network-timeout=100000
 
-# 2. 正常安装其他依赖
+# 1. 正常安装依赖
 RUN yarn --network-timeout=100000
 
-# 3. 使用 sed 修改 server.js (开启 Gzip)
+# 2. 使用 sed 修改 server.js (开启 Gzip)
 # 在 app = express() 下面插入 app.use
 RUN sed -i "/const app = express()/a app.use(compression());" server.js
 
