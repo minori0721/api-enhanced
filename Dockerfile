@@ -20,8 +20,6 @@ RUN yarn add compression --network-timeout=100000
 RUN yarn --network-timeout=100000
 
 # 3. 使用 sed 修改 server.js (开启 Gzip)
-# 在第 1 行插入引用
-RUN sed -i "1i const compression = require('compression');" server.js
 # 在 app = express() 下面插入 app.use
 RUN sed -i "/const app = express()/a app.use(compression());" server.js
 
